@@ -1,6 +1,6 @@
 package com.practicalddd.cargotracker.bookingms.interfaces.rest.transform;
 
-import com.practicalddd.cargotracker.bookingms.domain.model.commands.RouteCargoCommand;
+import com.practicalddd.cargotracker.bookingms.domain.cmd.RouteCargoCommand;
 import com.practicalddd.cargotracker.bookingms.interfaces.rest.dto.RouteCargoResource;
 
 /**

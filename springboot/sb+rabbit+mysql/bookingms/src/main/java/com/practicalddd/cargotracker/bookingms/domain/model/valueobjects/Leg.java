@@ -1,12 +1,14 @@
 package com.practicalddd.cargotracker.bookingms.domain.model.valueobjects;
 
 import com.practicalddd.cargotracker.bookingms.domain.model.entities.Location;
+import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Getter
 public class Leg {
     private static final long serialVersionUID = 1L;
     @Id

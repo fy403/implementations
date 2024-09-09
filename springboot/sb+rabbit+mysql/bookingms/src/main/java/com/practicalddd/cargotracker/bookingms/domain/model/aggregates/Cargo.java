@@ -2,18 +2,14 @@ package com.practicalddd.cargotracker.bookingms.domain.model.aggregates;
 
 import javax.persistence.*;
 
-import com.practicalddd.cargotracker.bookingms.domain.model.commands.BookCargoCommand;
-import com.practicalddd.cargotracker.bookingms.domain.model.commands.RouteCargoCommand;
+import com.practicalddd.cargotracker.bookingms.domain.cmd.BookCargoCommand;
 import com.practicalddd.cargotracker.bookingms.domain.model.entities.Location;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.LastCargoHandledEvent;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.*;
-import com.practicalddd.cargotracker.shareddomain.events.CargoBookedEvent;
-import com.practicalddd.cargotracker.shareddomain.events.CargoBookedEventData;
-import com.practicalddd.cargotracker.shareddomain.events.CargoRoutedEvent;
-import com.practicalddd.cargotracker.shareddomain.events.CargoRoutedEventData;
-import org.springframework.data.domain.AbstractAggregateRoot;
+import lombok.Getter;
 
 @Entity
+@Getter
 @NamedQueries({
         @NamedQuery(name = "Cargo.findAll",
                 query = "Select c from Cargo c"),
@@ -21,7 +17,7 @@ import org.springframework.data.domain.AbstractAggregateRoot;
                 query = "Select c from Cargo c where c.bookingId = :bookingId"),
         @NamedQuery(name = "Cargo.findAllBookingIds",
                 query = "Select c.bookingId from Cargo c") })
-public class Cargo extends AbstractAggregateRoot<Cargo> {
+public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -62,11 +58,9 @@ public class Cargo extends AbstractAggregateRoot<Cargo> {
         this.bookingAmount = new BookingAmount(bookCargoCommand.getBookingAmount());
         this.delivery = Delivery.derivedFrom(this.routeSpecification,
                 this.itinerary, LastCargoHandledEvent.EMPTY);
+    }
 
-        //Add this domain event which needs to be fired when the new cargo is saved
-        addDomainEvent(new
-                CargoBookedEvent(
-                        new CargoBookedEventData(this.bookingId.getBookingId())));
+    public Cargo(BookingId bookingId, BookingAmount bookingAmount, Location origin, RouteSpecification routeSpecification, CargoItinerary itinerary, Delivery delivery) {
     }
 
     public BookingId getBookingId() {
@@ -108,9 +102,6 @@ public class Cargo extends AbstractAggregateRoot<Cargo> {
 
     public void assignToRoute(CargoItinerary cargoItinerary) {
         this.itinerary = cargoItinerary;
-        //Add this domain event which needs to be fired when the new cargo is saved
-        addDomainEvent(new
-                CargoRoutedEvent(new CargoRoutedEventData(this.bookingId.getBookingId())));
     }
 
     /**
@@ -121,14 +112,4 @@ public class Cargo extends AbstractAggregateRoot<Cargo> {
         this.delivery = Delivery.derivedFrom(getRouteSpecification(), getItinerary(),
                 lastCargoHandledEvent);
     }
-
-    /**
-     * Method to register the event
-     * @param event
-     */
-    public void addDomainEvent(Object event){
-        registerEvent(event);
-    }
-
-
 }

@@ -1,6 +1,7 @@
 package com.practicalddd.cargotracker.bookingms.domain.model.valueobjects;
 
 import com.practicalddd.cargotracker.bookingms.domain.model.entities.Location;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
 /**
  * Domain class which tracks the progress of the Cargo against the Route Specification / Itinerary and Handling Events.
  */
-
+@Getter
 @Embeddable
 public class Delivery {
 
@@ -47,6 +48,14 @@ public class Delivery {
         this.currentVoyage = calculateCurrentVoyage();
         //this.nextExpectedActivity = calculateNextExpectedActivity(
         // routeSpecification, itinerary);
+    }
+
+    public Delivery(RoutingStatus routingStatus, TransportStatus transportStatus, Location lastKnownLocation, Voyage currentVoyage, LastCargoHandledEvent lastEvent) {
+        this.routingStatus = routingStatus;
+        this.transportStatus = transportStatus;
+        this.lastKnownLocation = lastKnownLocation;
+        this.currentVoyage = currentVoyage;
+        this.lastEvent = lastEvent;
     }
 
     /**

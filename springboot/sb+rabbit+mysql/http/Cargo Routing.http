@@ -1,0 +1,6 @@
+POST http://localhost:8079/cargorouting
+Content-Type: application/json
+
+{
+  "bookingId": "58560D6E"
+}

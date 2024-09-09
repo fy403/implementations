@@ -1,0 +1,100 @@
+###Run in sequence
+###Recieved at port
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "CNHKG",
+    "handlingType" : "RECEIVE",
+    "completionTime": "2019-08-23",
+    "voyageNumber" : ""
+}
+###Loaded onto carrier
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "CNHKG",
+    "handlingType" : "LOAD",
+    "completionTime": "2019-08-25",
+    "voyageNumber" : "0100S"
+}
+###Unloaded
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "CNHGH",
+    "handlingType" : "UNLOAD",
+    "completionTime": "2019-08-28",
+    "voyageNumber" : "0100S"
+}
+###Loaded onto next carrier
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "CNHGH",
+    "handlingType" : "LOAD",
+    "completionTime": "2019-09-01",
+    "voyageNumber" : "0101S"
+}
+###Unloaded
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "JNTKO",
+    "handlingType" : "UNLOAD",
+    "completionTime": "2019-09-10",
+    "voyageNumber" : "0101S"
+}
+###Loaded onto next carrier
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "JNTKO",
+    "handlingType" : "LOAD",
+    "completionTime": "2019-09-15",
+    "voyageNumber" : "0102S"
+}
+###Unloaded
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "USNYC",
+    "handlingType" : "UNLOAD",
+    "completionTime": "2019-09-25",
+    "voyageNumber" : "0102S"
+}
+###Customs
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "USNYC",
+    "handlingType" : "CUSTOMS",
+    "completionTime": "2019-09-26",
+    "voyageNumber" : ""
+}
+###Claimed
+POST http://localhost:8084/cargohandling
+Content-Type: application/json
+
+{
+    "bookingId" : "58560D6E",
+    "unLocode" : "USNYC",
+    "handlingType" : "CLAIM",
+    "completionTime": "2019-09-28",
+    "voyageNumber" : ""
+}

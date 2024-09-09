@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.cargoMapper">
+
+    <resultMap id="BaseResultMap" type="generator.domain.cargo">
+            <id property="ID" column="ID" jdbcType="INTEGER"/>
+            <result property="BOOKING_ID" column="BOOKING_ID" jdbcType="VARCHAR"/>
+            <result property="TRANSPORT_STATUS" column="TRANSPORT_STATUS" jdbcType="VARCHAR"/>
+            <result property="ROUTING_STATUS" column="ROUTING_STATUS" jdbcType="VARCHAR"/>
+            <result property="spec_origin_id" column="spec_origin_id" jdbcType="VARCHAR"/>
+            <result property="spec_destination_id" column="spec_destination_id" jdbcType="VARCHAR"/>
+            <result property="SPEC_ARRIVAL_DEADLINE" column="SPEC_ARRIVAL_DEADLINE" jdbcType="DATE"/>
+            <result property="origin_id" column="origin_id" jdbcType="VARCHAR"/>
+            <result property="BOOKING_AMOUNT" column="BOOKING_AMOUNT" jdbcType="INTEGER"/>
+            <result property="handling_event_id" column="handling_event_id" jdbcType="INTEGER"/>
+            <result property="next_expected_location_id" column="next_expected_location_id" jdbcType="VARCHAR"/>
+            <result property="next_expected_handling_event_type" column="next_expected_handling_event_type" jdbcType="VARCHAR"/>
+            <result property="next_expected_voyage_id" column="next_expected_voyage_id" jdbcType="VARCHAR"/>
+            <result property="last_known_location_id" column="last_known_location_id" jdbcType="VARCHAR"/>
+            <result property="current_voyage_number" column="current_voyage_number" jdbcType="VARCHAR"/>
+            <result property="last_handling_event_id" column="last_handling_event_id" jdbcType="INTEGER"/>
+            <result property="last_handling_event_type" column="last_handling_event_type" jdbcType="VARCHAR"/>
+            <result property="last_handling_event_location" column="last_handling_event_location" jdbcType="VARCHAR"/>
+            <result property="last_handling_event_voyage" column="last_handling_event_voyage" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,BOOKING_ID,TRANSPORT_STATUS,
+        ROUTING_STATUS,spec_origin_id,spec_destination_id,
+        SPEC_ARRIVAL_DEADLINE,origin_id,BOOKING_AMOUNT,
+        handling_event_id,next_expected_location_id,next_expected_handling_event_type,
+        next_expected_voyage_id,last_known_location_id,current_voyage_number,
+        last_handling_event_id,last_handling_event_type,last_handling_event_location,
+        last_handling_event_voyage
+    </sql>
+</mapper>
