@@ -1,4 +1,4 @@
-package com.practicalddd.cargotracker.bookingms.infrastructure.brokers.rabbitmq;
+package com.practicalddd.cargotracker.bookingms.infrastructure.brokers;
 
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;

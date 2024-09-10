@@ -1,4 +1,4 @@
-package com.practicalddd.cargotracker.shareddomain.events;
+package com.practicalddd.cargotracker.bookingms.domain.event;
 
 
 /**

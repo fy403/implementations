@@ -1,11 +1,11 @@
-package com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing.acl.impl;
+package com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing.impl;
 
 import com.practicalddd.cargotracker.bookingms.domain.model.entities.Location;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.CargoItinerary;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.Leg;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.RouteSpecification;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.Voyage;
-import com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing.acl.ExternalCargoRoutingService;
+import com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing.ExternalCargoRoutingService;
 import com.practicalddd.cargotracker.shareddomain.model.TransitEdge;
 import com.practicalddd.cargotracker.shareddomain.model.TransitPath;
 import org.springframework.stereotype.Service;

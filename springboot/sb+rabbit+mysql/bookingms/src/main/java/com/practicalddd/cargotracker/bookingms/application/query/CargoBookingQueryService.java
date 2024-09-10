@@ -1,5 +1,6 @@
 package com.practicalddd.cargotracker.bookingms.application.query;
 
+import com.practicalddd.cargotracker.bookingms.application.query.qry.CargoFindByBookingIdQuery;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.BookingId;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.Cargo;
 
@@ -24,5 +25,5 @@ public interface CargoBookingQueryService {
      * @param bookingId
      * @return Cargo
      */
-    public Cargo find(BookingId bookingId);
+    public Cargo find(CargoFindByBookingIdQuery cargoByBookingIdQuery);
 }

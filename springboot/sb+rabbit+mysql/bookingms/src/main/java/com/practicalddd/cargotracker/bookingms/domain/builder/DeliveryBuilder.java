@@ -9,6 +9,10 @@ public class DeliveryBuilder {
     private Location lastKnownLocation;
     private Voyage currentVoyage;
     private LastCargoHandledEvent lastEvent;
+
+    public DeliveryBuilder() {
+
+    }
     public DeliveryBuilder withRoutingStatus(RoutingStatus routingStatus) {
         this.routingStatus = routingStatus;
         return this;

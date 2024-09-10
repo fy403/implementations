@@ -1,4 +1,4 @@
-package com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing.acl;
+package com.practicalddd.cargotracker.bookingms.infrastructure.rpc.cargo.routing;
 
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.CargoItinerary;
 import com.practicalddd.cargotracker.bookingms.domain.model.valueobjects.RouteSpecification;

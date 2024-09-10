@@ -9,10 +9,6 @@ import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.Cargo;
 public class CargoBookedEventData {
 
     private String bookingId;
-    private Cargo cargo;
-    public CargoBookedEventData(){}
     public CargoBookedEventData(String bookingId){ this.bookingId = bookingId; }
     public String getBookingId(){return this.bookingId;}
-    public CargoBookedEventData(String bookingId, Cargo cargo) { this.bookingId = bookingId; this.cargo = cargo;}
-    public Cargo getCargo(){return this.cargo;}
 }

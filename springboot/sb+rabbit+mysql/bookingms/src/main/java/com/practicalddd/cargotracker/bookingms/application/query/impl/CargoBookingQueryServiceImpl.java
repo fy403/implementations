@@ -2,13 +2,15 @@ package com.practicalddd.cargotracker.bookingms.application.query.impl;
 
 
 import com.practicalddd.cargotracker.bookingms.application.query.CargoBookingQueryService;
+import com.practicalddd.cargotracker.bookingms.application.query.qry.CargoFindByBookingIdQuery;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.BookingId;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.Cargo;
-import com.practicalddd.cargotracker.bookingms.infrastructure.repositories.jpa.CargoRepository;
+import com.practicalddd.cargotracker.bookingms.infrastructure.repositories.mybatis.dao.CargoDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Application Service which caters to all queries related to the Booking Bounded Context
@@ -17,15 +19,14 @@ import java.util.List;
 public class CargoBookingQueryServiceImpl implements CargoBookingQueryService {
 
     @Autowired
-    private CargoRepository cargoRepository; // Inject Dependencies
-
+    private CargoDao cargoDao;
     /**
      * Find all Cargos
      * @return List<Cargo>
      */
 
     public List<Cargo> findAll(){
-        return cargoRepository.findAll();
+        return cargoDao.queryCargos();
     }
 
     /**
@@ -33,8 +34,7 @@ public class CargoBookingQueryServiceImpl implements CargoBookingQueryService {
      * @return List<BookingId>
      */
    public List<BookingId> findAllBookingIds(){
-
-       return cargoRepository.findAllBookingIds();
+        return cargoDao.selectAllBookingIds().stream().map(BookingId::new).collect(Collectors.toList());
    }
 
     /**
@@ -42,7 +42,7 @@ public class CargoBookingQueryServiceImpl implements CargoBookingQueryService {
      * @param bookingId
      * @return Cargo
      */
-    public Cargo find(BookingId bookingId){
-        return cargoRepository.findByBookingId(bookingId);
+    public Cargo find(CargoFindByBookingIdQuery cargoByBookingIdQuery){
+        return cargoDao.selectByBookingId(cargoByBookingIdQuery.getBookingId().getBookingId());
     }
 }

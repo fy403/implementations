@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GuavaDomainEventPublisherImpl implements DomainEventPublisher {
+public class EventBusDomainEventPublisherImpl implements DomainEventPublisher {
 
     @Autowired
     EventBus eventBus;

@@ -61,6 +61,12 @@ public class Cargo {
     }
 
     public Cargo(BookingId bookingId, BookingAmount bookingAmount, Location origin, RouteSpecification routeSpecification, CargoItinerary itinerary, Delivery delivery) {
+        this.bookingId = bookingId;
+        this.bookingAmount = bookingAmount;
+        this.origin = origin;
+        this.routeSpecification = routeSpecification;
+        this.itinerary = itinerary;
+        this.delivery = delivery;
     }
 
     public BookingId getBookingId() {

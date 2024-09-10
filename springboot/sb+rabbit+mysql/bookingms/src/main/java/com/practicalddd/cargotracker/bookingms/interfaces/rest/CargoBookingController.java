@@ -2,6 +2,7 @@ package com.practicalddd.cargotracker.bookingms.interfaces.rest;
 
 import com.practicalddd.cargotracker.bookingms.application.command.CargoBookingCommandService;
 import com.practicalddd.cargotracker.bookingms.application.query.CargoBookingQueryService;
+import com.practicalddd.cargotracker.bookingms.application.query.qry.CargoFindByBookingIdQuery;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.BookingId;
 import com.practicalddd.cargotracker.bookingms.domain.model.aggregates.Cargo;
 import com.practicalddd.cargotracker.bookingms.interfaces.rest.dto.BookCargoResource;
@@ -52,6 +53,6 @@ public class CargoBookingController {
     @GetMapping("/findCargo")
     @ResponseBody
     public Cargo findByBookingId(@RequestParam("bookingId") String bookingId){
-        return cargoBookingQueryService.find(new BookingId(bookingId));
+        return cargoBookingQueryService.find(new CargoFindByBookingIdQuery(new BookingId(bookingId)));
     }
 }

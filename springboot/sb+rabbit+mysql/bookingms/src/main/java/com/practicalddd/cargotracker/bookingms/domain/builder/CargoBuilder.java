@@ -16,6 +16,8 @@ public class CargoBuilder {
     private RouteSpecification routeSpecification; //Route Specification of the Cargo
     private CargoItinerary itinerary; //Itinerary Assigned to the Cargo
     private Delivery delivery; // Checks the delivery progress of the cargo against the actual Route Specification and Itinerary
+
+    public CargoBuilder(){}
     public CargoBuilder withBookingId(BookingId bookingId){
         this.bookingId = bookingId;
         return this;
